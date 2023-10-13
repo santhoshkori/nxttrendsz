@@ -1,0 +1,87 @@
+.headrecontlarger {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logoimgpxlrg {
+  height: 50px;
+  width: 200px;
+}
+.ulcontainer {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.ulbuttoncontainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.listy {
+  font-family: 'Roboto';
+  font-weight: 700;
+  margin-right: 15px;
+}
+.lgbuttonsty {
+  color: #fff;
+  background-color: #0967d2;
+  border-style: none;
+  padding: 6px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .headrecontlarger {
+    display: none;
+  }
+}
+.logoimgpxsm {
+  height: 20px;
+  width: 70px;
+}
+.logoutbutton {
+  border-style: none;
+  background-color: transparent;
+}
+.navlogout {
+  height: 30px;
+  width: 30px;
+}
+.logologutcont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 767px) {
+  .logologutcont {
+    display: none;
+  }
+}
+.iconscont {
+  padding: 20px;
+  background-color: #e6f6ff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (min-width: 767px) {
+  .iconscont {
+    display: none;
+  }
+}
+.iconbutton {
+  border-style: none;
+  background-color: transparent;
+}
+.iconsty {
+  height: 20px;
+  width: 20px;
+}

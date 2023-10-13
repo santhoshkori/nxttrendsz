@@ -1,0 +1,46 @@
+/* Write your CSS code here */
+.homemaincontainer {
+  padding: 60px;
+}
+@media screen and (max-width: 768px) {
+  .homemaincontainer {
+    padding: 25px;
+  }
+}
+.shopnowbutton {
+  border-style: none;
+  padding: 8px;
+  color: #fff;
+  background-color: #0967d2;
+  font-family: 'Roboto';
+  border-radius: 6px;
+  font-weight: 700;
+}
+.lgcontdes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+@media screen and (max-width: 767px) {
+  .lgcontdes {
+    display: none;
+  }
+}
+.smcontdes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (min-width: 767px) {
+  .smcontdes {
+    display: none;
+  }
+}
+.smnoticedimg {
+  height: 300px;
+  width: 300px;
+  text-align: center;
+}
