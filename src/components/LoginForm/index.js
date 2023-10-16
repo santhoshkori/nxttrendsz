@@ -8,7 +8,7 @@ const websitelog =
   'https://assets.ccbp.in/frontend/react-js/nxt-trendz-logo-img.png'
 
 class LoginForm extends Component {
-  state = {username: '', password: '', mynameerror: '', mypasserror: ''}
+  state = {username: '', password: '', errormsg: ''}
 
   passwordinput = event => {
     this.setState({password: event.target.value})
@@ -18,27 +18,13 @@ class LoginForm extends Component {
     this.setState({username: event.target.value})
   }
 
-  blurusername = () => {
-    const {username} = this.state
-    if (username === '') {
-      this.setState({mynameerror: '*requried'})
-    } else {
-      this.setState({mynameerror: ''})
-    }
-  }
-
-  passblur = () => {
-    const {password} = this.state
-    if (password === '') {
-      this.setState({mypasserror: '*requried'})
-    } else {
-      this.setState({mypasserror: ''})
-    }
-  }
-
   gotohomepage = () => {
     const {history} = this.props
     history.replace('/')
+  }
+
+  displayerrormsg = msg => {
+    this.setState({errormsg: msg})
   }
 
   submitform = async event => {
@@ -55,20 +41,16 @@ class LoginForm extends Component {
     const data = await response.json()
     const status = data.status_code
     console.log(status)
-    if (status === undefined) {
-      this.setState({errormsg: ''})
-    } else {
-      this.setState({errormsg: '*Username and Password didn`t match'})
-    }
 
     if (response.ok === true) {
       this.gotohomepage()
+    } else {
+      this.displayerrormsg(data.error_msg)
     }
   }
 
   render() {
-    const {errormsg, username, password, mynameerror, mypasserror} = this.state
-    console.log(mynameerror)
+    const {errormsg, username, password} = this.state
 
     return (
       <div className="loginpagebgcontaainer">
@@ -87,9 +69,7 @@ class LoginForm extends Component {
                 className="margin inputsty"
                 value={username}
                 onChange={this.usernameinput}
-                onBlur={this.blurusername}
               />
-              <p className="errormsgsty">{mynameerror}</p>
             </div>
             <div>
               <label htmlFor="password">Password</label>
@@ -101,9 +81,7 @@ class LoginForm extends Component {
                 className="margin inputsty"
                 value={password}
                 onChange={this.passwordinput}
-                onBlur={this.passblur}
               />
-              <p className="errormsgsty">{mypasserror}</p>
             </div>
             <button type="submit" className="margin loginbutton">
               Login
